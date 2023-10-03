@@ -1,0 +1,17 @@
+{% extends "blog/base.html" %}
+{% load static %}
+        
+
+{% block content %}
+<div class="col-sm-1o">
+    <h3 class="text-white my-5">Dashboard/Update post</h3>
+    <form action="" method="post">
+        {% csrf_token %}
+        {% for form in forms %}
+        {{form.label}}{{form}}{{form.errors|striptags}}
+        {% endfor %}
+        <input type="submit" value="Update" class="btn btn-primary my-3">
+        <a href="{% url "dashboard" %}" class="btn btn-danger">Cancel</a>
+    </form>
+</div>
+{% endblock content %}
